@@ -172,9 +172,36 @@ export const addProfileImage = async (req, res, next) => {
             req.file.filename
         }`;
 
-        const user = await User.findByIdAndUpdate(userId, {
+        const user = await User.findByIdAndUpdate(
+            userId,
+            {
+                image: imageUrl,
+            },
+            { new: true }
+        );
+
+        res.status(200).json({
+            id: user.id,
+            email: user.email,
+            name: user.name,
             image: imageUrl,
+            profileSetup: user.profileSetup,
         });
+    } catch (error) {
+        console.log(error.message);
+        return next(createError(500, "Internal Server Error"));
+    }
+};
+
+export const removeProfileImage = async (req, res, next) => {
+    try {
+        const { userId } = req;
+
+        const user = await User.findByIdAndUpdate(
+            userId,
+            { image: "" },
+            { new: true }
+        );
 
         res.status(200).json({
             id: user.id,
@@ -188,5 +215,3 @@ export const addProfileImage = async (req, res, next) => {
         return next(createError(500, "Internal Server Error"));
     }
 };
-
-export const removeProfileImage = async (req, res, next) => {};
