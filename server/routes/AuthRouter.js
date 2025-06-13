@@ -21,14 +21,14 @@ const storage = multer.diskStorage({
         cb(null, "./uploads");
     },
     filename: (req, file, cb) => {
-        const uniqueSuffix = Date.now() + "_" + Math.round(Math.random() + 1e9);
-        cb(
-            null,
+        const uniqueSuffix = Date.now() + Math.round(Math.random() + 1e9);
+        const newFileName =
             file.fieldname +
-                "-" +
-                uniqueSuffix +
-                path.extname(file.originalname)
-        );
+            "-" +
+            uniqueSuffix +
+            path.extname(file.originalname);
+
+        cb(null, newFileName);
     },
 });
 
