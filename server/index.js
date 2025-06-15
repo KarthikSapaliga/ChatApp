@@ -2,8 +2,6 @@ import express from "express";
 import http from "http";
 import { Server } from "socket.io";
 
-import setupSocket from "./socket.js";
-
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -11,9 +9,12 @@ import mongoose from "mongoose";
 import { fileURLToPath } from "url";
 import path from "path";
 
+import setupSocket from "./socket.js";
+import connectToDB from "./utils/connectToDB.js";
+
 import AuthRouter from "./routes/AuthRouter.js";
 import ContactRouter from "./routes/ContactRouter.js";
-import connectToDB from "./utils/connectToDB.js";
+import MessageRouter from "./routes/MessageRoute.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 3001;
@@ -47,6 +48,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api/user", AuthRouter);
 app.use("/api/contacts", ContactRouter);
+app.use("/api/messages", MessageRouter);
 
 app.get("/", (req, res) => {
     res.send("root route");
