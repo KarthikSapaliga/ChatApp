@@ -49,7 +49,7 @@ const setupSocket = (io) => {
 
         userSocketMap.set(userId, socket.id);
         console.log(
-            `User connected: UserId:${userId} with SockerId:${socket.id}`
+            `User connected: UserId:${userId} with SocketId:${socket.id}`
         );
 
         //=========Send Messages================
