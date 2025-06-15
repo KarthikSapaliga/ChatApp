@@ -2,6 +2,8 @@ import express from "express";
 import http from "http";
 import { Server } from "socket.io";
 
+import setupSocket from "./socket.js";
+
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -11,6 +13,7 @@ import path from "path";
 
 import AuthRouter from "./routes/AuthRouter.js";
 import ContactRouter from "./routes/ContactRouter.js";
+import connectToDB from "./utils/connectToDB.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 3001;
@@ -59,3 +62,6 @@ app.use((error, req, res, next) => {
 server.listen(PORT, () => {
     console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
+
+await connectToDB();
+setupSocket(io);
