@@ -15,6 +15,7 @@ import connectToDB from "./utils/connectToDB.js";
 import AuthRouter from "./routes/AuthRouter.js";
 import ContactRouter from "./routes/ContactRouter.js";
 import MessageRouter from "./routes/MessageRoute.js";
+import ChannelRouter from "./routes/ChannelRouter.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 3001;
@@ -46,9 +47,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-app.use("/api/user", AuthRouter);
+app.use("/api/users", AuthRouter);
 app.use("/api/contacts", ContactRouter);
 app.use("/api/messages", MessageRouter);
+app.use("/api/channels", ChannelRouter);
 
 app.get("/", (req, res) => {
     res.send("root route");
