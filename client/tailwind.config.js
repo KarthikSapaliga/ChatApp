@@ -22,12 +22,16 @@ export default {
 
                 primary: "#7936ec",
 
-                stroke: "#E2E8F0",
-                strokedark: "#3b4048",
+                stroke: "#dde4ea",
+                strokedark: "#3b4052",
 
                 gray1: "#f0f0f8",
                 gray2: "#f2f2fa",
                 gray3: "#f7f7ff",
+
+                light1: "#e8e7ef",
+                light2: "#f6f5fa",
+                light3: "#ffffff",
 
                 dark1: "#1e2227",
                 dark2: "#23272e",
