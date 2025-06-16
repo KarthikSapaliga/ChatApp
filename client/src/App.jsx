@@ -7,7 +7,7 @@ import { GET_USER_INFO_ROUTE } from "./lib/routes";
 
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
-import Chat from "./pages/chat/Chat";
+import Chat from "./pages/chat/Index";
 import Profile from "./pages/profile/Profile";
 import toast from "./lib/toast";
 
