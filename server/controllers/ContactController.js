@@ -107,3 +107,26 @@ export const getContacts = async (req, res, next) => {
         return next(createError(500, "Internal server error"));
     }
 };
+
+export const getAllContacts = async (req, res, next) => {
+    console.log(">> get all contacts");
+    try {
+        const users = await User.find(
+            {
+                _id: { $ne: req.userId },
+            },
+            "_id name email image"
+        );
+
+        const contacts = users.map((user) => ({
+            label: user.name ? user.name : user.email,
+            value: user._id,
+            _id: user._id,
+        }));
+
+        res.status(200).json({ contacts });
+    } catch (error) {
+        console.log(error.message);
+        return next(createError(500, "Internal server error"));
+    }
+};
