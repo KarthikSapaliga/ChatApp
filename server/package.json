@@ -4,13 +4,12 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node index.js",
         "dev": "nodemon index.js"
     },
     "keywords": [],
     "author": "karthik",
-    "license": "ISC",
+    "license": "MIT",
     "description": "server for the chatapp",
     "dependencies": {
         "bcrypt": "^5.1.1",
