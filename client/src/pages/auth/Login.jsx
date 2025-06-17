@@ -51,7 +51,7 @@ function Login() {
                 }
             }
         } catch (error) {
-            toast("error", error || "Login failed");
+            toast("error", "Login failed");
         }
     };
 
@@ -62,7 +62,10 @@ function Login() {
             </div>
             <div className="flex flex-col md:flex-row items-center h-full overflow-auto no-scrollbar">
                 <div className="hidden w-full h-full md:flex xl:w-1/2 items-center justify-center">
-                    <img src={loginBanner} className="mx-auto w-full object-cover object-center" />
+                    <img
+                        src={loginBanner}
+                        className="mx-auto w-full object-cover object-center"
+                    />
                 </div>
                 <div className="w-full xl:w-1/2">
                     <div className="w-full p-4 sm:p-12.5 xl:p-17.5">

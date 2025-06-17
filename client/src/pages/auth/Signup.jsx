@@ -58,7 +58,7 @@ function Signup() {
                 navigate("/profile");
             }
         } catch (error) {
-            toast("error", error?.response?.data?.error || "SignUp failed");
+            toast("error", "SignUp failed");
         }
     };
 
