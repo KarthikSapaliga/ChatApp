@@ -63,13 +63,16 @@ function Signup() {
     };
 
     return (
-        <div className="bg-gray3 dark:bg-dark1 h-screen relative p-10">
+        <div className="bg-light3 dark:bg-dark1 h-screen relative p-10">
             <div className="absolute right-2 top-2">
                 <ThemeToggle />
             </div>
             <div className="flex flex-wrap items-center h-full overflow-auto no-scrollbar">
                 <div className="hidden w-full h-full md:flex xl:w-1/2 items-center justify-center">
-                    <img src={loginBanner} className="mx-auto w-5/6" />
+                    <img
+                        src={loginBanner}
+                        className="mx-auto w-full object-cover object-center"
+                    />
                 </div>
                 <div className="w-full xl:w-1/2">
                     <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
@@ -84,7 +87,7 @@ function Signup() {
                                     placeholder="Enter your email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full rounded-lg border border-stroke dark:border-strokedark py-3 pl-6 pr-10 bg-gray2 dark:bg-dark3 outline-none focus:border-[2px] focus:border-primary dark:focus:border-primary text-black dark:text-white"
+                                    className="w-full rounded-lg border border-stroke dark:border-strokedark py-3 pl-6 pr-10 bg-light2 dark:bg-dark3 outline-none focus:border-[2px] focus:border-primary dark:focus:border-primary text-black dark:text-white"
                                 />
                                 <Mail
                                     size={20}
@@ -99,7 +102,7 @@ function Signup() {
                                     onChange={(e) =>
                                         setPassword(e.target.value)
                                     }
-                                    className="w-full rounded-lg border border-stroke dark:border-strokedark py-3 pl-6 pr-10 bg-gray2 dark:bg-dark3 outline-none focus:border-[2px] focus:border-primary dark:focus:border-primary text-black dark:text-white"
+                                    className="w-full rounded-lg border border-stroke dark:border-strokedark py-3 pl-6 pr-10 bg-light2 dark:bg-dark3 outline-none focus:border-[2px] focus:border-primary dark:focus:border-primary text-black dark:text-white"
                                 />
                                 <KeyRound
                                     size={20}
@@ -114,7 +117,7 @@ function Signup() {
                                     onChange={(e) =>
                                         setConfiemPassword(e.target.value)
                                     }
-                                    className="w-full rounded-lg border border-stroke dark:border-strokedark py-3 pl-6 pr-10 bg-gray2 dark:bg-dark3 outline-none focus:border-[2px] focus:border-primary dark:focus:border-primary text-black dark:text-white"
+                                    className="w-full rounded-lg border border-stroke dark:border-strokedark py-3 pl-6 pr-10 bg-light2 dark:bg-dark3 outline-none focus:border-[2px] focus:border-primary dark:focus:border-primary text-black dark:text-white"
                                 />
                                 <KeyRound
                                     size={20}
