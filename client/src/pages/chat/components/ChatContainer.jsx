@@ -1,6 +1,6 @@
-import ChatHeader from "./components/ChatHeader";
-import ChatMessages from "./components/ChatMessages";
-import ChatInput from "./components/ChatInput";
+import ChatHeader from "./ChatHeader";
+import ChatMessages from "./ChatMessages";
+import ChatInput from "./ChatInput";
 
 function ChatContainer() {
     return (
