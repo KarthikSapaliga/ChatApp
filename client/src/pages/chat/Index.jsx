@@ -4,7 +4,7 @@ import toast from "@/lib/toast";
 import { useNavigate } from "react-router-dom";
 import { useAppStore } from "@/store/store";
 
-import ChatContainer from "./ChatContainer";
+import ChatContainer from "./components/ChatContainer";
 import ContactsContainer from "./components/ContactsContainer";
 import EmptyChat from "./components/EmptyChat";
 
