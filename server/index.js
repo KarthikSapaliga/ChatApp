@@ -53,7 +53,11 @@ app.use("/api/messages", MessageRouter);
 app.use("/api/channels", ChannelRouter);
 
 app.get("/", (req, res) => {
-    res.send("root route");
+    res.send(`
+        <div style="text-align:center; margin-top:20px;">
+            <h1>Server is running.</h1>
+        </div>
+    `);
 });
 
 // Global Error Handler
