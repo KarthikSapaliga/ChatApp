@@ -42,6 +42,10 @@ function App() {
                 }
             } catch (error) {
                 setUserInfo(undefined);
+
+                const token = Cookies.get("QuickChatAccessToken");
+                if (!token) return;
+
                 toast(
                     "error",
                     error?.response?.data?.error || "Failed to get user info"
@@ -50,12 +54,13 @@ function App() {
                 setLoading(false);
             }
         };
+
         if (!userInfo) {
             getUserData();
         } else {
             setLoading(false);
         }
-    }, [userInfo, setUserInfo]);
+    }, [userInfo]);
 
     if (loading) {
         return (
