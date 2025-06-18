@@ -19,15 +19,15 @@ import ChannelRouter from "./routes/ChannelRouter.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 3001;
-// const ORIGIN = process.env.ORIGIN;
+const ORIGIN = process.env.ORIGIN;
 
-const ORIGIN = [
-    "http://localhost:5173", // React (Vite)
-    "http://127.0.0.1:5173", // Sometimes this is used
-    "http://localhost:3000", // In case you test from another dev tool
-    "http://localhost:5500", // If using Live Server
-    "http://localhost:4000", // Postman sends requests from here logically
-];
+// const ORIGIN = [
+//     "http://localhost:5173", // React (Vite)
+//     "http://127.0.0.1:5173", // Sometimes this is used
+//     "http://localhost:3000", // In case you test from another dev tool
+//     "http://localhost:5500", // If using Live Server
+//     "http://localhost:4000", // Postman sends requests from here logically
+// ];
 
 const CORS_OPTIONS = {
     origin: ORIGIN,
