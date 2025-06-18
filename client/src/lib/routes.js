@@ -1,4 +1,4 @@
-export const HOST = import.meta.env.VITE_SERVER_URL;
+export const HOST = "https://chatapp-server-notn.onrender.com/"
 
 export const AUTH_ROUTE = "/api/users";
 export const SIGNUP_ROUTE = `${AUTH_ROUTE}/register`;
