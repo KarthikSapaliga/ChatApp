@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Cookies from "js-cookie";
+
 import { useAppStore } from "./store/store";
 import { apiClient } from "./lib/axios";
 import { GET_USER_INFO_ROUTE } from "./lib/routes";
