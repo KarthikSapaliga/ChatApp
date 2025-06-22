@@ -150,17 +150,17 @@ function ChatInput() {
                             >
                                 <Smile size={20} />
                             </span>
-                            <div
-                                className={`absolute bottom-10 right-0`}
-                                ref={emojiRef}
-                            >
-                                <EmojiPicker
-                                    open={emojiPickerOpen}
-                                    theme="dark"
-                                    onEmojiClick={handleAddEmoji}
-                                    autoFocusSearch={false}
-                                />
-                            </div>
+                        </div>
+                        <div
+                            className={`absolute bottom-12 left:0 sm:right-0`}
+                            ref={emojiRef}
+                        >
+                            <EmojiPicker
+                                open={emojiPickerOpen}
+                                theme="dark"
+                                onEmojiClick={handleAddEmoji}
+                                autoFocusSearch={false}
+                            />
                         </div>
                     </div>
                     <button
