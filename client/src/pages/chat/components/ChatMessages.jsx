@@ -70,7 +70,7 @@ function ChatMessages() {
             scrollRef.current.scrollIntoView({ behavior: "smooth" });
         }
 
-        return () => {};
+        return () => { };
     }, [selectedChatMessages]);
 
     const checkIfImage = (fileUrl) => {
@@ -108,11 +108,10 @@ function ChatMessages() {
             <div className={`max-w-115 ${isOwn && "ml-auto"}`}>
                 {msg.messageType === "text" && (
                     <p
-                        className={`mb-1.5 rounded-2xl px-5 py-3 ${
-                            isOwn
+                        className={`mb-1.5 rounded-2xl px-5 py-3 ${isOwn
                                 ? "bg-primary text-white rounded-br-none"
                                 : "bg-light1 dark:bg-dark3 dark:text-white rounded-tl-none"
-                        }`}
+                            }`}
                     >
                         {msg.content}
                     </p>
@@ -120,11 +119,10 @@ function ChatMessages() {
 
                 {msg.messageType === "file" && (
                     <div
-                        className={`cursor-pointer rounded-2xl overflow-hidden p-1 mb-1.5 ${
-                            isOwn
+                        className={`cursor-pointer rounded-2xl overflow-hidden p-1 mb-1.5 ${isOwn
                                 ? "bg-primary text-white rounded-br-none"
                                 : "bg-light1 dark:bg-dark3 dark:text-white rounded-tl-none"
-                        }`}
+                            }`}
                     >
                         {checkIfImage(msg.fileUrl) ? (
                             <div className="group w-full h-auto object-cover object-center relative rounded-xl overflow-hidden">
@@ -178,10 +176,15 @@ function ChatMessages() {
                     {!isOwn && (
                         <div className="flex items-end gap-1 mb-2 relative">
                             <div className="absolute top-1 w-6 h-6 rounded-full">
-                                <Avatar
-                                    src={msg.sender.image}
-                                    name={msg.sender.name}
-                                />
+                                {
+                                    msg.sender.image && msg.sender.image !== "" ? (
+                                        <img src={msg.sender.image} alt={msg.sender.name} className="h-full w-full rounded-full object-cover object-center" />
+                                    ) : (
+                                        <div className="h-6 w-6 flex justify-center items-center rounded-full bg-gray-600 text-white">
+                                            {msg.sender.name?.charAt(0)?.toUpperCase() || "?"}
+                                        </div>
+                                    )
+                                }
                             </div>
                             <p className="text-sm ml-7 absolute -top-3">
                                 {msg.sender.name}
@@ -191,11 +194,10 @@ function ChatMessages() {
 
                     {msg.messageType === "text" && (
                         <p
-                            className={`mb-1.5 rounded-2xl px-5 py-3 ${
-                                isOwn
+                            className={`mb-1.5 rounded-2xl px-5 py-3 ${isOwn
                                     ? "bg-primary text-white rounded-br-none"
                                     : "bg-light1 dark:bg-dark3 dark:text-white rounded-tl-none ml-7"
-                            }`}
+                                }`}
                         >
                             {msg.content}
                         </p>
@@ -203,11 +205,10 @@ function ChatMessages() {
 
                     {msg.messageType === "file" && (
                         <div
-                            className={`cursor-pointer rounded-2xl overflow-hidden p-1 mb-1.5 ${
-                                isOwn
+                            className={`cursor-pointer rounded-2xl overflow-hidden p-1 mb-1.5 ${isOwn
                                     ? "bg-primary text-white rounded-br-none"
                                     : "bg-light1 dark:bg-dark3 dark:text-white rounded-tl-none ml-7"
-                            }`}
+                                }`}
                         >
                             {checkIfImage(msg.fileUrl) ? (
                                 <div className="group w-full h-auto object-cover object-center relative rounded-xl overflow-hidden">
