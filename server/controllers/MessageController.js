@@ -1,5 +1,7 @@
 import Message from "../models/MessageModel.js";
 import createError from "../utils/createError.js";
+import { imagekit } from "../config/imagekit.js";
+import path from "path";
 
 export const getMessages = async (req, res, next) => {
     console.log(">> get the messages");
@@ -28,36 +30,29 @@ export const getMessages = async (req, res, next) => {
 export const uploadFile = async (req, res, next) => {
     console.log(">> upload file");
     try {
-        // console.log("req.body:", req.body);
         console.log("req.file:", req.file);
 
         if (!req.file) {
             return next(createError(400, "File is required"));
         }
 
-        // const { recipientId } = req.body;
-        // const senderId = req.userId;
+        const uniqueSuffix = Date.now() + Math.round(Math.random() + 1e9);
+        const newFileName =
+            req.file.fieldname +
+            uniqueSuffix +
+            "-" +
+            path.basename(req.file.originalname);
 
-        // if (!recipientId || !senderId) {
-        //     return next(createError(400, "Sender and recipient are required"));
-        // }
+        console.log("uploading: ", newFileName);
+        const uploadResponse = await imagekit.upload({
+            file: req.file.buffer,
+            fileName: newFileName,
+            folder: "/chat-uploads",
+        });
 
-        const fileUrl = `${req.protocol}://${req.get("host")}/uploads/${
-            req.file.filename
-        }`;
+        console.log({ uploadResponse });
 
-        // const message = new Message({
-        //     sender: senderId,
-        //     recipient: recipientId,
-        //     messageType: "file",
-        //     fileUrl,
-        // });
-
-        // await message.save();
-
-        console.log({ fileUrl });
-
-        return res.status(200).json({ fileUrl });
+        return res.status(200).json({ fileUrl: uploadResponse.url });
     } catch (error) {
         return next(createError(500, "Internal server error"));
     }
