@@ -1,9 +1,11 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import path from "path";
 
 import User from "../models/UserModel.js";
 import connectToDB from "../utils/connectToDB.js";
 import createError from "../utils/createError.js";
+import { imagekit } from "../config/imagekit.js";
 
 dotenv.config();
 const JWT_TOKEN = process.env.JWT_TOKEN;
@@ -160,22 +162,34 @@ export const updateProfile = async (req, res, next) => {
 };
 
 export const addProfileImage = async (req, res, next) => {
+    console.log(">> add Profile Image");
     try {
-        if (!req.file || !req.file.filename) {
+        if (!req.file) {
             return res.status(400).json({ message: "No image uploaded" });
         }
 
-        const { userId } = req;
-        const { image } = req.file?.filename;
+        console.log("Received file:", req.file);
+        console.log("User ID:", req.userId);
 
-        const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${
-            req.file.filename
-        }`;
+        const { userId } = req;
+
+        const uniqueSuffix = Date.now() + Math.round(Math.random() + 1e9);
+        const newFileName =
+            req.file.fieldname +
+            "-" +
+            uniqueSuffix +
+            path.extname(req.file.originalname);
+
+        const uploadResponse = await imagekit.upload({
+            file: req.file.buffer,
+            fileName: newFileName,
+            folder: "/profile-images", // folder in ImageKit dashboard
+        });
 
         const user = await User.findByIdAndUpdate(
             userId,
             {
-                image: imageUrl,
+                image: uploadResponse.url,
             },
             { new: true }
         );
@@ -184,11 +198,12 @@ export const addProfileImage = async (req, res, next) => {
             id: user.id,
             email: user.email,
             name: user.name,
-            image: imageUrl,
+            image: user.image,
             profileSetup: user.profileSetup,
         });
     } catch (error) {
-        console.log(error.message);
+        console.log({ error });
+        console.error("ImageKit upload error:", error.message);
         return next(createError(500, "Internal Server Error"));
     }
 };
