@@ -10,7 +10,7 @@ function ChatHeader() {
         <>
             <div className="flex items-center justify-between border-b  border-stroke dark:border-strokedark px-6 py-4.5">
                 <div className="flex items-center cursor-pointer">
-                    <div className="mr-4.5 h-13 max-w-13 w-full overflow-hidden rounded-full">
+                    <div className="mr-4.5 h-12 w-12 overflow-hidden rounded-full">
                         {selectedChatData.image &&
                         selectedChatData.image !== "" ? (
                             <img
