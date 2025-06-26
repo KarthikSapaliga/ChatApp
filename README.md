@@ -17,7 +17,8 @@
 </div>
 
 ###
-<img src="./screenshots/chatscreen.png"/>
+
+<img src="./assets/dark.png"/>
 
 ## 🚀 Features
 
@@ -117,6 +118,7 @@
          ├── connectToDB.js
          └── createError.js
 ```
+
 </details>
 
 ## 🔧 Setup Instructions
@@ -129,13 +131,14 @@ cd ChatApp
 ```
 
 ### 2. Install Dependencies
-
+`
 For Server:
 
 ```bash
 cd server
 npm install
 ```
+
 For Client:
 
 ```bash
@@ -146,11 +149,13 @@ npm install
 ### 3. Environment Variables
 
 Create a .env file inside the `client/` directory and add:
+
 ```env
 VITE_SERVER_URL=
 ```
 
 Create a .env file inside the `server/` directory and add:
+
 ```env
 PORT=
 MONGO_URI=
@@ -166,16 +171,19 @@ IMAGEKIT_URL_ENDPOINT=
 ### 4. Run the App
 
 Backend:
+
 ```bash
 cd server
 npm run dev
 ```
 
 Frontend:
+
 ```bash
 cd client
 npm run dev
 ```
+
 ## 🤝 Contributing
 
 We welcome contributions from the community! Whether it's a bug fix, a new feature, or documentation improvement, your input helps make this project better.
