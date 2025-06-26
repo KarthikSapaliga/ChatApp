@@ -118,10 +118,10 @@ function ChatInput() {
 
     return (
         <>
-            <div className="sticky bottom-0 border-t  border-stroke dark:border-strokedark px-6 py-3">
+            <div className="border-t border-stroke dark:border-strokedark px-6 py-2 sm:py-0 sm:h-[8vh] shrink-0 flex items-center bg-light3 dark:bg-dark2">
                 <form
                     onSubmit={handleSendMessage}
-                    className="flex items-center justify-between gap-4"
+                    className="w-full flex items-center justify-between gap-4"
                 >
                     <div className="relative w-full">
                         <input
