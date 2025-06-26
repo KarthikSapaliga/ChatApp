@@ -8,8 +8,6 @@ import { GET_CHANNEL_MESSAGES, GET_MESSAGES_ROUTE } from "@/lib/routes";
 import moment from "moment";
 import { ArrowUpRight, CloudDownload } from "lucide-react";
 
-import Avatar from "@/components/Avatar";
-
 function ChatMessages() {
     const scrollRef = useRef();
     const {
@@ -85,7 +83,7 @@ function ChatMessages() {
             const showDate = msgDate != lastDate;
             lastDate = msgDate;
             return (
-                <div key={index} className="m-2 p-2">
+                <div key={index} className="mx-2 p-2">
                     {showDate && (
                         <div className="text-center my-5">
                             <span className="bg-light1 dark:bg-dark3 py-2 px-3 rounded-md">
@@ -110,7 +108,7 @@ function ChatMessages() {
                     <p
                         className={`mb-1.5 rounded-2xl px-5 py-3 ${isOwn
                                 ? "bg-primary text-white rounded-br-none"
-                                : "bg-light1 dark:bg-dark3 dark:text-white rounded-tl-none"
+                                : "bg-light2 dark:bg-dark3 dark:text-white rounded-tl-none"
                             }`}
                     >
                         {msg.content}
@@ -121,7 +119,7 @@ function ChatMessages() {
                     <div
                         className={`cursor-pointer rounded-2xl overflow-hidden p-1 mb-1.5 ${isOwn
                                 ? "bg-primary text-white rounded-br-none"
-                                : "bg-light1 dark:bg-dark3 dark:text-white rounded-tl-none"
+                                : "bg-light2 dark:bg-dark3 dark:text-white rounded-tl-none"
                             }`}
                     >
                         {checkIfImage(msg.fileUrl) ? (
@@ -146,7 +144,7 @@ function ChatMessages() {
                             </div>
                         ) : (
                             <div className="flex items-center gap-4 px-3 py-2">
-                                <div className="w-15 h-15 flex justify-center items-center shrink-0 rounded-full bg-black/40">
+                                <div className="w-15 h-15 flex justify-center items-center shrink-0 rounded-full bg-black/5 dark:bg-black/10">
                                     <CloudDownload size={25} />
                                 </div>
                                 <a
@@ -196,7 +194,7 @@ function ChatMessages() {
                         <p
                             className={`mb-1.5 rounded-2xl px-5 py-3 ${isOwn
                                     ? "bg-primary text-white rounded-br-none"
-                                    : "bg-light1 dark:bg-dark3 dark:text-white rounded-tl-none ml-7"
+                                    : "bg-light2 dark:bg-dark3 dark:text-white rounded-tl-none ml-7"
                                 }`}
                         >
                             {msg.content}
@@ -207,7 +205,7 @@ function ChatMessages() {
                         <div
                             className={`cursor-pointer rounded-2xl overflow-hidden p-1 mb-1.5 ${isOwn
                                     ? "bg-primary text-white rounded-br-none"
-                                    : "bg-light1 dark:bg-dark3 dark:text-white rounded-tl-none ml-7"
+                                    : "bg-light2 dark:bg-dark3 dark:text-white rounded-tl-none ml-7"
                                 }`}
                         >
                             {checkIfImage(msg.fileUrl) ? (
@@ -231,7 +229,7 @@ function ChatMessages() {
                                 </div>
                             ) : (
                                 <div className="flex items-center gap-4 px-3 py-2">
-                                    <div className="w-15 h-15 flex justify-center items-center shrink-0 rounded-full bg-black/40">
+                                    <div className="w-15 h-15 flex justify-center items-center shrink-0 rounded-full bg-black/5 dark:bg-black/10">
                                         <CloudDownload size={25} />
                                     </div>
                                     <a
