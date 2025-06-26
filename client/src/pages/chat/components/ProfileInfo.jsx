@@ -30,7 +30,7 @@ function ProfileInfo() {
     };
 
     return (
-        <div className=" bg-light1 dark:bg-dark2 flex gap-2 px-3 py-2 items-center h-20">
+        <div className=" bg-light1 dark:bg-dark2 flex gap-2 px-3 py-2 items-center h-[10vh] sm:h-[8vh] shrink-0">
             <div
                 className="flex items-center gap-3 flex-1 px-3 py-2 rounded-md cursor-pointer"
                 onClick={() => navigate("/profile")}
