@@ -23,7 +23,7 @@ export default {
                 primary: "#7936ec",
 
                 stroke: "#dde4ea",
-                strokedark: "#3b4052",
+                strokedark: "#303442",
 
                 gray1: "#f0f0f8",
                 gray2: "#f2f2fa",
@@ -33,8 +33,8 @@ export default {
                 light2: "#f6f5fa",
                 light3: "#ffffff",
 
-                dark1: "#1e2227",
-                dark2: "#23272e",
+                dark1: "#191e24",
+                dark2: "#232830",
                 dark3: "#2c313c",
             },
             fontSize: {
