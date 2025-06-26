@@ -11,7 +11,7 @@ function ThemeToggle() {
     return (
         <div
             onClick={toggleTheme}
-            className="border p-2 border-stroke  dark:border-strokedark rounded-md cursor-pointer relative group hover:bg-light1 dark:hover:bg-dark3"
+            className="p-2 rounded-md cursor-pointer relative group bg-light1 dark:bg-dark2 hover:bg-light1 dark:hover:bg-dark3"
         >
             {theme === "light" ? (
                 <Moon size={20} className="text-fgclr" />
